@@ -13,11 +13,19 @@ function toDoList() {
   listElement.innerText = inputValue;
   ul.appendChild(listElement);
   inputValue = " ";
-  const checkBox = document.createElement("div");
-  checkBox.innerHTML = `<i class="fa-solid fa-check"></i
+  const checkBoxIcon = document.createElement("div");
+  checkBoxIcon.innerHTML = `<i class="fa-solid fa-check"></i
   >`;
-  listElement.appendChild(checkBox);
-  const trashCan = document.createElement("div");
-  trashCan.innerHTML = `<i class="fa-solid fa-trash"></i>`;
-  listElement.appendChild(trashCan);
+  listElement.appendChild(checkBoxIcon);
+  const trashCanIcon = document.createElement("div");
+  trashCanIcon.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+  listElement.appendChild(trashCanIcon);
+
+  checkBoxIcon.addEventListener("click", () => {
+    listElement.classList.toggle("checked");
+  });
+
+  trashCanIcon.addEventListener("click", () => {
+    listElement.remove();
+  });
 }
