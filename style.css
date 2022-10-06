@@ -1,49 +1,70 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,100;1,300&display=swap");
-
 body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
   background-color: greenyellow;
 }
 
-.inputClass {
-  border-radius: 15px;
-  height: 30px;
-  width: 240px;
-  font-family: "Montserrat", sans-serif;
-  cursor: pointer;
-  box-shadow: 0 10px 10px -8px rgba(0, 0, 0, 0.7);
+.input {
+  border-radius: 10px 10px 0 0;
+  border: none;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-family: cursive;
 }
 
-input::placeholder {
-  font-weight: bold;
+.input::placeholder {
+  color: lightgray;
 }
 
-.formClass {
-  height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-ul {
+.form {
   position: absolute;
-  top: 150px;
+  top: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 400px;
+  background-color: yellow;
+  border-radius: 10px;
 }
 
-.ulClass li .fa-trash {
+.list {
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  list-style-type: none;
+  padding: 20px;
+  font-family: cursive;
+  border-top: dotted;
+  border-color: darkgray;
+  position: relative;
+}
+
+.list li .fa-trash {
   color: red;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
   cursor: pointer;
 }
 
-.ulClass li .fa-check {
+.list li .fa-check {
   color: green;
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
   cursor: pointer;
 }
 
-.ulClass li.checked {
-  color: darkgrey;
+.list li.checked {
+  color: darkgray;
   text-decoration: line-through;
 }
 
-.ulClass li.checked .fa-check {
-  color: darkgrey;
+.list li.checked .fa-check {
+  color: darkgray;
 }

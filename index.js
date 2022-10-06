@@ -1,15 +1,27 @@
-const form = document.querySelector(".formClass");
-const input = document.querySelector(".inputClass");
-const ul = document.querySelector(".ulClass");
+const form = document.querySelector(".form");
+const input = document.querySelector(".input");
+const ul = document.querySelector(".list");
+
+let listArray = JSON.parse(localStorage.getItem("list"));
+
+listArray.forEach(function (element) {
+  toDoList(element);
+});
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   toDoList();
 });
 
-function toDoList() {
+function toDoList(element) {
   let inputValue = input.value;
+  if (element) {
+    inputValue = element.name;
+  }
   const listElement = document.createElement("li");
+  if (element && element.checked) {
+    listElement.classList.add("checked");
+  }
   listElement.innerText = inputValue;
   ul.appendChild(listElement);
   inputValue = " ";
@@ -23,9 +35,26 @@ function toDoList() {
 
   checkBoxIcon.addEventListener("click", () => {
     listElement.classList.toggle("checked");
+    addToLocalStorage();
   });
 
   trashCanIcon.addEventListener("click", () => {
     listElement.remove();
+    addToLocalStorage();
   });
+
+  addToLocalStorage();
+}
+
+function addToLocalStorage() {
+  const liElements = document.querySelectorAll("li");
+  listArray = [];
+  liElements.forEach(function (element) {
+    listArray.push({
+      name: element.innerText,
+      checked: element.classList.contains("checked"),
+    });
+  });
+
+  localStorage.setItem("list", JSON.stringify(listArray));
 }
