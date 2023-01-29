@@ -3,10 +3,7 @@ const input = document.querySelector(".input");
 const ul = document.querySelector(".list");
 
 let listArray = JSON.parse(localStorage.getItem("list"));
-
-listArray.forEach(function (element) {
-  toDoList(element);
-});
+console.log(listArray);
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -48,6 +45,7 @@ function toDoList(element) {
 
 function addToLocalStorage() {
   const liElements = document.querySelectorAll("li");
+  console.log(liElements);
   listArray = [];
   liElements.forEach(function (element) {
     listArray.push({
